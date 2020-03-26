@@ -15,7 +15,7 @@ _start:
     
     mov si, Text            ;源变址寄存器
     mov di, 0x00            ;目的变址寄存器
-    mov cx, _start-Text
+    mov cx, _start-Text     ;数据传送次数
     rep movsb
     
     jmp near $              ;“$”当前相对地址
