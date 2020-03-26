@@ -11,7 +11,7 @@ _start:
     mov ax, 0xB800
     mov es, ax              ;数据传送默认目的寄存器
     
-    cld
+    cld                     ;标志位寄存器清零
     
     mov si, Text            ;源变址寄存器
     mov di, 0x00            ;目的变址寄存器
