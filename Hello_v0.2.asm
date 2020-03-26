@@ -6,20 +6,20 @@ Text db \
 
 _start:
     mov ax, 0x7C0
-    mov ds, ax
+    mov ds, ax              ;数据传送默认源寄存器
     
     mov ax, 0xB800
-    mov es, ax
+    mov es, ax              ;数据传送默认目的寄存器
     
     cld
     
-    mov si, Text
-    mov di, 0x00
+    mov si, Text            ;源变址寄存器
+    mov di, 0x00            ;目的变址寄存器
     mov cx, _start-Text
     rep movsb
     
-    jmp near $
+    jmp near $              ;“$”当前相对地址
     
-    times 510-($-$$) nop
+    times 510-($-$$) nop    ;“$$”起始相对地址
     
     db 0x55, 0xAA
